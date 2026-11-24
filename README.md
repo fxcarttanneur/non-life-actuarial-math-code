@@ -1,1 +1,1 @@
-# non-life-actuarial-math-code-
+# non-life-actuarial-math-code
