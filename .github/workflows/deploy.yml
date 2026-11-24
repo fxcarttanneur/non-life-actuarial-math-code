@@ -25,7 +25,10 @@ jobs:
       - name: Install JupyterLite
         run: python -m pip install "jupyterlite-core>=0.4,<0.7" "jupyterlite-pyodide-kernel>=0.4,<0.7" "jupyterlab>=4.2,<5" "notebook>=7.2,<8"
       - name: Build the site
-        run: jupyter lite build --contents notebooks --contents src --contents README.md --output-dir dist
+        run: 
+          mkdir -p content
+          cp -r notebooks src README.md content/
+          jupyter lite build --contents content --output-dir dist        
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
